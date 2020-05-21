@@ -85,17 +85,22 @@ class Item extends CI_Controller
       $post = $this->input->post(null, true);
       if (isset($_POST['add'])) {
          if ($this->item_model->check_barcode($post['barcode'])->num_rows() > 0) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon fa fa-ban"></i> Barcode ' . $post['barcode'] . ' sudah dipakai barang lain!</div>');
-            redirect('item');
+            $this->session->set_flashdata('error', "Barcode $post[barcode] sudah dipakai barang lain!");
+            redirect('item/add');
          } else {
             $this->item_model->add($post);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil ditambahkan!</div>');
+            $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
             redirect('item');
          }
       } else if (isset($_POST['edit'])) {
-         $this->item_model->edit($post);
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil diupdate!</div>');
-         redirect('item');
+         if ($this->item_model->check_barcode($post['barcode'], $post['id'])->num_rows() > 0) {
+            $this->session->set_flashdata('error', "Barcode $post[barcode] sudah dipakai barang lain!");
+            redirect('item/edit/' . $post['id']);
+         } else {
+            $this->item_model->edit($post);
+            $this->session->set_flashdata('success', 'Data berhasil diupdate!');
+            redirect('item');
+         }
       }
    }
 
@@ -106,7 +111,7 @@ class Item extends CI_Controller
       $delete = $this->item_model->delete($id);
 
       if ($delete) {
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil dihapus!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil dihapus!');
          redirect('item');
       }
    }

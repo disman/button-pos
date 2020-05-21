@@ -21,6 +21,7 @@
             </div>
          </div>
          <div class="box-body">
+            <?php $this->view('message'); ?>
             <div class="row">
                <div class="col-md-4 col-md-offset-2">
                   <form action="<?= site_url('item/proccess'); ?>" method="POST">

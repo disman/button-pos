@@ -21,7 +21,7 @@
             </div>
          </div>
          <div class="box-body table-responsive">
-            <?= $this->session->flashdata('message'); ?>
+            <?php $this->view('message'); ?>
             <table class="table table-bordered table-striped table-hover">
                <thead>
                   <tr>

@@ -62,11 +62,11 @@ class Category extends CI_Controller
       $post = $this->input->post(null, true);
       if (isset($_POST['add'])) {
          $this->category_model->add($post);
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil ditambahkan!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
          redirect('category');
       } else if (isset($_POST['edit'])) {
          $this->category_model->edit($post);
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil diupdate!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil diupdate!');
          redirect('category');
       }
    }
@@ -78,7 +78,7 @@ class Category extends CI_Controller
       $delete = $this->category_model->delete($id);
 
       if ($delete) {
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil dihapus!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil dihapus!');
          redirect('category');
       }
    }

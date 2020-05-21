@@ -35,7 +35,7 @@ class User extends CI_Controller
         if ($this->form_validation->run() == true) {
             $post = $this->input->post(null, true);
             $this->user_model->add($post);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user berhasil ditambahkan!</div>');
+            $this->session->set_flashdata('success', 'Data user berhasil ditambahkan!');
             redirect('user');
         } else {
             $data['title'] = "Add user";
@@ -53,7 +53,7 @@ class User extends CI_Controller
         $delete = $this->user_model->delete($id);
 
         if ($delete) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user berhasil dihapus!</div>');
+            $this->session->set_flashdata('success', 'Data user berhasil dihapus!');
             redirect('user');
         }
     }

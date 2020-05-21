@@ -7,8 +7,8 @@ class Pelanggan extends CI_Controller
    public function __construct()
    {
       parent::__construct();
-      $this->load->model('customer_model');
       not_login();
+      $this->load->model('customer_model');
    }
 
    public function index()
@@ -65,11 +65,11 @@ class Pelanggan extends CI_Controller
       $post = $this->input->post(null, true);
       if (isset($_POST['add'])) {
          $this->customer_model->add($post);
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil ditambahkan!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
          redirect('customer');
       } else if (isset($_POST['edit'])) {
          $this->customer_model->edit($post);
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil diupdate!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil diupdate!');
          redirect('customer');
       }
    }
@@ -81,7 +81,7 @@ class Pelanggan extends CI_Controller
       $delete = $this->customer_model->delete($id);
 
       if ($delete) {
-         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="icon fa fa-check"></i> Data berhasil dihapus!</div>');
+         $this->session->set_flashdata('success', 'Data berhasil dihapus!');
          redirect('customer');
       }
    }
