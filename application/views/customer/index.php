@@ -39,7 +39,7 @@
                      <tr>
                         <td style="width:5%"><?= $no++; ?></td>
                         <td><?= $row->name; ?></td>
-                        <td><?= $row->gender; ?></td>
+                        <td><?= $row->gender == "L" ? "Laki-Laki" : "Perempuan"; ?></td>
                         <td><?= $row->phone; ?></td>
                         <td><?= $row->address; ?></td>
                         <td class="text-center" width="160px">

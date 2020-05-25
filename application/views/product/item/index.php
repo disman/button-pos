@@ -27,6 +27,7 @@
                   <tr>
                      <th>No</th>
                      <th>Barcode</th>
+                     <th>Image</th>
                      <th>Product name</th>
                      <th>Category</th>
                      <th>Unit</th>
@@ -41,6 +42,13 @@
                      <tr>
                         <td style="width:5%"><?= $no++; ?></td>
                         <td><?= $row->barcode; ?></td>
+                        <td>
+                           <?php if ($row->image != null) { ?>
+                              <img src="<?= base_url('images/product/' . $row->image); ?>" style="width: 80px; height: 60px;">
+                           <?php } else { ?>
+                              <img src="<?= base_url('images/product/default.jpg'); ?>" style="width: 80px; height: 60px;">
+                           <?php } ?>
+                        </td>
                         <td><?= $row->name; ?></td>
                         <td><?= $row->category_name; ?></td>
                         <td><?= $row->unit_name; ?></td>

@@ -17,7 +17,7 @@
          <div class="box-header">
             <h3 class="box-title"><?= ucfirst($page); ?> customer</h3>
             <div class="pull-right">
-               <a href="<?= site_url('customer/index'); ?>" class="btn btn-warning btn-sm"> <i class="fa fa-undo"></i> Back</a>
+               <a href="<?= site_url('customer'); ?>" class="btn btn-warning btn-sm"> <i class="fa fa-undo"></i> Back</a>
             </div>
          </div>
          <div class="box-body">
