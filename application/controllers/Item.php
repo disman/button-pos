@@ -161,4 +161,14 @@ class Item extends CI_Controller
          redirect('item');
       }
    }
+
+   public function barcode_generator($id)
+   {
+      $data['item'] = $this->item_model->get($id)->row();
+      $data['title'] = "Barcode generator";
+      $this->load->view('_partials/header', $data);
+      $this->load->view('_partials/sidebar');
+      $this->load->view('product/item/barcode_generator', $data);
+      $this->load->view('_partials/footer');
+   }
 }

@@ -41,7 +41,10 @@
                   <?php foreach ($item->result() as $key => $row) : ?>
                      <tr>
                         <td style="width:5%"><?= $no++; ?></td>
-                        <td><?= $row->barcode; ?></td>
+                        <td>
+                           <?= $row->barcode; ?>
+                           <a href="<?php echo site_url('item/barcode_generator/' . $row->item_id) ?>" class="btn btn-default btn-xs"><i class="fa fa-barcode"> Generate</i></a>
+                        </td>
                         <td>
                            <?php if ($row->image != null) { ?>
                               <img src="<?= base_url('images/product/' . $row->image); ?>" style="width: 80px; height: 60px;">
