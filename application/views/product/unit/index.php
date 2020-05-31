@@ -5,7 +5,8 @@
          <small>Satuan Barang</small>
       </h1>
       <ol class="breadcrumb">
-         <li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+         <li><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+         <li><a href="<?php echo site_url('unit') ?>">Product</a></li>
          <li class="active">Units</li>
       </ol>
    </section>

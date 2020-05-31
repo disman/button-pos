@@ -6,6 +6,7 @@
       </h1>
       <ol class="breadcrumb">
          <li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+         <li><a href="<?php echo site_url('category') ?>">Product</a></li>
          <li class="active">Categories</li>
       </ol>
    </section>
