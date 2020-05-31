@@ -171,4 +171,11 @@ class Item extends CI_Controller
       $this->load->view('product/item/barcode_generator', $data);
       $this->load->view('_partials/footer');
    }
+
+   public function qrcode()
+   {
+      $qrCode = new Endroid\QrCode\QrCode('12345');
+      header('Content-Type: ' . $qrCode->getContentType());
+      echo $qrCode->writeString();
+   }
 }
