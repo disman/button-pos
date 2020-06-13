@@ -58,8 +58,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="#"><i class="fa fa-circle-o"></i> Sales</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Stock In</a></li>
-                    <li><a href="E"><i class="fa fa-circle-o"></i> Stock Out</a></li>
+                    <li><a href="<?= site_url('stock/in'); ?>"><i class="fa fa-circle-o"></i> Stock In</a></li>
+                    <li><a href="<?= site_url('stock/out'); ?>"><i class="fa fa-circle-o"></i> Stock Out</a></li>
                 </ul>
             </li>
             <li class="treeview">

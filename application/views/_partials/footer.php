@@ -226,13 +226,29 @@
 <script src="<?php echo base_url('assets/') ?>dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url('assets/') ?>dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url('assets/') ?>dist/js/demo.js"></script>
 
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable()
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#select', function() {
+            var item_id = $(this).data('id');
+            var barcode = $(this).data('barcode');
+            var name = $(this).data('name');
+            var unit_name = $(this).data('unit');
+            var stock = $(this).data('stock');
+            $('#item_id').val(item_id);
+            $('#barcode').val(barcode);
+            $('#item_name').val(name);
+            $('#unit_name').val(unit_name);
+            $('#stock').val(stock);
+            $('#modal-item').modal('hide');
+        })
+    })
 </script>
 
 <script type="text/javascript">

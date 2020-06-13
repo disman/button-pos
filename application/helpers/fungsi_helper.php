@@ -17,3 +17,18 @@ function not_login()
         redirect('auth');
     }
 }
+
+function check_admin()
+{
+    $ci = &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->level != 1) {
+        redirect('dashboard');
+    }
+}
+
+function indo_currency($nominal)
+{
+    $result = "Rp " . number_format($nominal, 2, ',', '.');
+    return $result;
+}
