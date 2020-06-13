@@ -8,7 +8,7 @@ class Stock extends CI_Controller
    {
       parent::__construct();
       not_login();
-      $this->load->model(['item_model', 'supplier_model']);
+      $this->load->model(['item_model', 'supplier_model', 'stock_model']);
    }
 
    public function stock_in_data()
@@ -35,7 +35,11 @@ class Stock extends CI_Controller
    public function proccess()
    {
       if (isset($_POST['in_add'])) {
-         echo "Proses in add";
+         $post = $this->input->post(null, true);
+         $this->stock_model->add_stock_in($post);
+         $this->item_model->update_stock_in($post);
+         $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
       }
+      redirect('stock/in');
    }
 }
