@@ -13,6 +13,7 @@ class Stock extends CI_Controller
 
    public function stock_in_data()
    {
+      $data['stock_in'] = $this->stock_model->get_stock_in()->result();
       $data['title'] = "Stock in data";
       $this->load->view('_partials/header', $data);
       $this->load->view('_partials/sidebar');

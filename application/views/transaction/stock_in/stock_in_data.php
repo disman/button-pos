@@ -26,15 +26,29 @@
             <table id="dataTable" class="table table-bordered table-striped table-hover">
                <thead>
                   <tr>
-                     <th>No</th>
-                     <th>Name</th>
+                     <th>#</th>
+                     <th>Barcode</th>
+                     <th>Product item</th>
+                     <th>Qty</th>
+                     <th>Date</th>
                      <th>Actions</th>
                   </tr>
                </thead>
                <tbody>
-                  <td>1</td>
-                  <td>Mangga</td>
-                  <td>Edit hapus</td>
+                  <?php $no = 1;
+                  foreach ($stock_in as $key => $row) : ?>
+                     <tr>
+                        <td><?= $no++; ?></td>
+                        <td><?= $row->barcode; ?></td>
+                        <td><?= $row->supplier_name; ?></td>
+                        <td class="text-right"><?= $row->qty; ?></td>
+                        <td class="text-center"><?= indo_date($row->date); ?></td>
+                        <td class="text-center" width="160px">
+                           <a href="#" class="btn btn-default btn-xs"><span class="fa fa-eye"></span> Detail</a>
+                           <a onclick="return confirm('Are you sure?')" href="<?= site_url('stock/in/delete/' . $row->stock_id); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
+                        </td>
+                     </tr>
+                  <?php endforeach; ?>
                </tbody>
             </table>
          </div>

@@ -49,7 +49,7 @@
                      <div class="form-group">
                         <div class="row">
                            <div class="col-md-8">
-                              <label for="unit_item">Item unit</label>
+                              <label for="unit_item">Unit name</label>
                               <input type="text" id="unit_name" name="unit_name" value="-" class="form-control" readonly>
                            </div>
                            <div class="col-md-4">

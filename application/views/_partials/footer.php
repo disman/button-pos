@@ -233,7 +233,7 @@
     });
 </script>
 
-// Set value ke form stock in
+<!-- Set value ke form stock in -->
 <script>
     $(document).ready(function() {
         $(document).on('click', '#select', function() {
